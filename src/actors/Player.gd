@@ -27,8 +27,15 @@ func get_input() -> void:
 
 func use() -> void:
 	if picked_up_object and use_cooldown == 0:
-		picked_up_object.use()
-		use_cooldown = 2.0
+		for body in pick_up_area.get_overlapping_bodies():
+			print(body.name)
+			# FIXME
+			if not body == picked_up_object:
+				if picked_up_object.use(body):
+					# object destroyed
+					picked_up_object.queue_free()
+					picked_up_object = null
+				use_cooldown = 2.0
 
 func throw(target: Vector2) -> void:
 	if picked_up_object and use_cooldown == 0:
@@ -77,7 +84,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if picked_up_object:
 			drop()
 		else:
-			for area in pick_up_area.get_overlapping_areas():
-				if area is PickableObject:
-					pick_up(area)
+			for body in pick_up_area.get_overlapping_bodies():
+				if body is PickableObject:
+					pick_up(body)
 					break
