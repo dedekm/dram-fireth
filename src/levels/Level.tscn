@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/objects/Wood.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/objects/Tree.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/tools/FpsCounter.tscn" type="PackedScene" id=4]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 477, 283 )
+
+[node name="Wood" parent="." instance=ExtResource( 2 )]
+position = Vector2( 617, 261 )
+
+[node name="Tree" parent="." instance=ExtResource( 3 )]
+position = Vector2( 259, 243 )
+
+[node name="FpsCounter" parent="." instance=ExtResource( 4 )]
+margin_left = 959.0
+margin_top = 20.0
+margin_right = 999.0
+margin_bottom = 34.0
