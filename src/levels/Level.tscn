@@ -17,7 +17,7 @@ position = Vector2( 617, 261 )
 position = Vector2( 259, 243 )
 
 [node name="FpsCounter" parent="." instance=ExtResource( 4 )]
-margin_left = 959.0
-margin_top = 20.0
-margin_right = 999.0
-margin_bottom = 34.0
+margin_left = 938.0
+margin_top = 30.0
+margin_right = 978.0
+margin_bottom = 44.0
