@@ -7,16 +7,18 @@ export (int) var throw_force = 500
 var velocity: = Vector2()
 var picked_up_object: PickableObject
 var use_cooldown: = 0.0
-var thrown_object_body = preload('res://src/actors/ThrownObjectBody.tscn')
+var thrown_object_body: = preload('res://src/actors/ThrownObjectBody.tscn')
 
-onready var pick_up_area = $PickUpArea
+onready var pick_up_area: = $PickUpArea
 
 func get_input() -> void:
 	velocity = Vector2()
 	if Input.is_action_pressed('right'):
 		velocity.x += 1
+		pick_up_area.position.x = 64
 	if Input.is_action_pressed('left'):
 		velocity.x -= 1
+		pick_up_area.position.x = -64
 	if Input.is_action_pressed('down'):
 		velocity.y += 1
 	if Input.is_action_pressed('up'):
@@ -25,7 +27,7 @@ func get_input() -> void:
 
 func use() -> void:
 	if picked_up_object and use_cooldown == 0:
-		print(picked_up_object.name)
+		picked_up_object.use()
 		use_cooldown = 2.0
 
 func throw(target: Vector2) -> void:
@@ -36,7 +38,6 @@ func throw(target: Vector2) -> void:
 		get_parent().add_child(to_instance)
 		pick_up_area.remove_child(picked_up_object)
 		to_instance.add_object(picked_up_object)
-		
 
 		picked_up_object = null
 		use_cooldown = 0.05
