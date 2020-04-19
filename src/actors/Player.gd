@@ -1,9 +1,13 @@
 extends KinematicBody2D
 
 export (int) var speed = 200
+export (int) var throw_force = 500
+
 
 var velocity: = Vector2()
 var picked_up_object: PickableObject
+var use_cooldown: = 0.0
+var thrown_object_body = preload('res://src/actors/ThrownObjectBody.tscn')
 
 onready var pick_up_area = $PickUpArea
 
@@ -18,7 +22,34 @@ func get_input() -> void:
 	if Input.is_action_pressed('up'):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
-#
+
+func use() -> void:
+	if picked_up_object and use_cooldown == 0:
+		print(picked_up_object.name)
+		use_cooldown = 2.0
+
+func throw(target: Vector2) -> void:
+	if picked_up_object and use_cooldown == 0:
+		var to_instance = thrown_object_body.instance()
+		to_instance.position = position
+		to_instance.velocity = _get_throw_vector(target)
+		get_parent().add_child(to_instance)
+		pick_up_area.remove_child(picked_up_object)
+		to_instance.add_object(picked_up_object)
+		
+
+		picked_up_object = null
+		use_cooldown = 0.05
+
+func _get_throw_vector(target: Vector2) -> Vector2:
+	return Vector2(throw_force, 0).rotated(get_angle_to(target))
+
+func cooldown(delta: float) -> void:
+	if use_cooldown:
+		use_cooldown -= delta
+		if use_cooldown < 0:
+			use_cooldown = 0
+
 func pick_up(object: PickableObject) -> void:
 	object.get_parent().remove_child(object)
 	pick_up_area.add_child(object)
@@ -28,19 +59,24 @@ func pick_up(object: PickableObject) -> void:
 func drop() -> void:
 	pick_up_area.remove_child(picked_up_object)
 	get_parent().add_child(picked_up_object)
-	picked_up_object.position = position + pick_up_area.position
+	picked_up_object.position = pick_up_area.get_global_mouse_position()
 	picked_up_object = null
-#
-func _physics_process(_delta: float) -> void:
+
+func _physics_process(delta: float) -> void:
 	get_input()
+	cooldown(delta)
 	velocity = move_and_slide(velocity)
-#
+
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed('pick_up'):
+	if event.is_action_pressed('use'):
+		use()
+	elif event.is_action_pressed('throw'):
+		throw(event.position)
+	elif event.is_action_pressed('pick_up'):
 		if picked_up_object:
 			drop()
 		else:
 			for area in pick_up_area.get_overlapping_areas():
-				if area.get_class() == 'PickableObject':
+				if area is PickableObject:
 					pick_up(area)
-#
+					break
