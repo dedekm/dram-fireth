@@ -35,7 +35,6 @@ func change_animation() -> void:
 	if velocity != Vector2.ZERO:
 		$AnimatedSprite.set_flip_h(false)
 		var angle = int(rad2deg(velocity.angle()))
-		print(angle)
 		match angle:
 			-135:
 				$AnimatedSprite.play('up_right')

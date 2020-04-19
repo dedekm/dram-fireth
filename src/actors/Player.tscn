@@ -41,7 +41,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6, 12 )
+extents = Vector2( 6, 6 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 4, 6 )
@@ -55,7 +55,7 @@ frames = SubResource( 3 )
 animation = "down_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
+position = Vector2( 0, 7 )
 shape = SubResource( 1 )
 
 [node name="PickUpArea" type="Area2D" parent="."]
