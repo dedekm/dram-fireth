@@ -11,19 +11,53 @@ var thrown_object_body: = preload('res://src/actors/ThrownObjectBody.tscn')
 
 onready var pick_up_area: = $PickUpArea
 
+func _physics_process(delta: float) -> void:
+	get_input()
+	cooldown(delta)
+	velocity = move_and_slide(velocity)
+	change_animation()
+
 func get_input() -> void:
 	velocity = Vector2()
 	if Input.is_action_pressed('right'):
 		velocity.x += 1
-		pick_up_area.position.x = 64
+		pick_up_area.position.x = 10
 	if Input.is_action_pressed('left'):
 		velocity.x -= 1
-		pick_up_area.position.x = -64
+		pick_up_area.position.x = -10
 	if Input.is_action_pressed('down'):
 		velocity.y += 1
 	if Input.is_action_pressed('up'):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
+
+func change_animation() -> void:
+	if velocity != Vector2.ZERO:
+		$AnimatedSprite.set_flip_h(false)
+		var angle = int(rad2deg(velocity.angle()))
+		print(angle)
+		match angle:
+			-135:
+				$AnimatedSprite.play('up_right')
+				$AnimatedSprite.set_flip_h(true)
+			-90:
+				$AnimatedSprite.play('up')
+			-45:
+				$AnimatedSprite.play('up_right')
+			0:
+				$AnimatedSprite.play('right')
+			45:
+				$AnimatedSprite.play('down_right')
+			90:
+				$AnimatedSprite.play('down')
+			135:
+				$AnimatedSprite.play('down_right')
+				$AnimatedSprite.set_flip_h(true)
+			180:
+				$AnimatedSprite.play('right')
+				$AnimatedSprite.set_flip_h(true)
+	else:
+		$AnimatedSprite.stop()
 
 func use() -> void:
 	if picked_up_object and use_cooldown == 0:
@@ -69,11 +103,6 @@ func drop() -> void:
 	get_parent().add_child(picked_up_object)
 	picked_up_object.position = pick_up_area.get_global_mouse_position()
 	picked_up_object = null
-
-func _physics_process(delta: float) -> void:
-	get_input()
-	cooldown(delta)
-	velocity = move_and_slide(velocity)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('use'):

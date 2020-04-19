@@ -10,10 +10,10 @@
 [node name="Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 477, 283 )
+position = Vector2( 120, 132 )
 
 [node name="Wood" parent="." instance=ExtResource( 2 )]
-position = Vector2( 617, 261 )
+position = Vector2( 172, 51 )
 
 [node name="Tree" parent="." instance=ExtResource( 3 )]
 position = Vector2( 259, 243 )
@@ -25,7 +25,7 @@ margin_right = 978.0
 margin_bottom = 44.0
 
 [node name="Axe" parent="." instance=ExtResource( 5 )]
-position = Vector2( 791, 124 )
+position = Vector2( 63, 48 )
 
 [node name="Fire" parent="." instance=ExtResource( 6 )]
 position = Vector2( 820, 466 )

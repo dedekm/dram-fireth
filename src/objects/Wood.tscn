@@ -3,7 +3,7 @@
 [ext_resource path="res://src/objects/PickableObject.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30, 30 )
+extents = Vector2( 15, 15 )
 
 [node name="Wood" type="StaticBody2D"]
 collision_layer = 2
