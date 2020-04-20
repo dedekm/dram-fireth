@@ -52,19 +52,14 @@ animations = [ {
 "name": "up",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "up_right_axe",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "down_right",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 27 ) ],
 "loop": true,
-"name": "down",
+"name": "right_axe",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 21 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 20 ) ],
@@ -82,39 +77,44 @@ animations = [ {
 "name": "down_right_axe",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "right_axe",
+"name": "down",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "up_right_axe",
 "speed": 8.0
 } ]
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 39 )
 region = Rect2( 0, 0, 7, 16 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 39 )
 region = Rect2( 7, 0, 7, 16 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 39 )
 region = Rect2( 14, 0, 7, 16 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 6, 7 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4, 6 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 5, 5 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -130,41 +130,36 @@ animation = "up_right"
 
 [node name="Chop" type="Node2D" parent="YSort"]
 position = Vector2( 0, 1 )
-scale = Vector2( 1, 1 )
 
 [node name="ChopSprite" type="AnimatedSprite" parent="YSort/Chop"]
 visible = false
-frames = SubResource( 8 )
+frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -7 )
-shape = SubResource( 2 )
+shape = SubResource( 6 )
 
 [node name="PickUpArea" type="Area2D" parent="."]
-visible = false
 position = Vector2( 8, -12 )
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
-visible = false
 modulate = Color( 0, 1, 0.227451, 1 )
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 position = Vector2( 1, -13.5 )
 current = true
 
 [node name="PushArea" type="Area2D" parent="."]
-visible = false
 position = Vector2( 0, -10 )
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
 modulate = Color( 0.12549, 0, 1, 1 )
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 38 )
