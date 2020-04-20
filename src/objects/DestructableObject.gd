@@ -18,6 +18,8 @@ func create_scrap(scrap_array: Array) -> void:
 func destroy() -> void:
 	print_debug(name + ' destroyed ')
 
+	$CollisionShape2D.disabled = true
+
 	if $AnimatedSprite or $Sprite:
 		if $AnimatedSprite:
 			$AnimatedSprite.play('destroyed')
