@@ -22,10 +22,10 @@ func get_input() -> void:
 	velocity = Vector2()
 	if Input.is_action_pressed('right'):
 		velocity.x += 1
-		pick_up_area.position.x = 8
+		$YSort/InHand.position.x = 8
 	if Input.is_action_pressed('left'):
 		velocity.x -= 1
-		pick_up_area.position.x = -8
+		$YSort/InHand.position.x = -8
 	if Input.is_action_pressed('down'):
 		velocity.y += 1
 	if Input.is_action_pressed('up'):
@@ -36,16 +36,20 @@ func _update_chop_position(x: float, y: float, angle: int) -> void:
 	var chop: = $YSort/Chop
 	var chop_sprite: = $YSort/Chop/ChopSprite
 
+	pick_up_area.set_rotation_degrees(angle)
+
 	chop_sprite.position.x = x * 5
 	chop_sprite.position.y = y * 5
 	chop_sprite.set_rotation_degrees(angle)
-
-	if y == -1:
+	
+	if y != 1:
 		chop.position.y = -1
 		chop_sprite.flip_v = true
+		$YSort/InHand.position.y = -1
 	else:
 		chop.position.y = 0
 		chop_sprite.flip_v = false
+		$YSort/InHand.position.y = 1
 
 func change_animation() -> void:
 	if velocity != Vector2.ZERO:
@@ -126,15 +130,15 @@ func pick_up(object: PickableObject) -> void:
 	object.get_parent().remove_child(object)
 	$YSort/PlayerSprite.play($YSort/PlayerSprite.animation.trim_suffix('_axe'))
 	object.picked_up()
-	pick_up_area.add_child(object)
+	$YSort/InHand.add_child(object)
 	picked_up_object = object
 	object.position = Vector2(0, 0)
 
 func drop() -> void:
-	pick_up_area.remove_child(picked_up_object)
+	$YSort/InHand.remove_child(picked_up_object)
 	picked_up_object.dropped()
 	get_parent().add_child(picked_up_object)
-	picked_up_object.position = pick_up_area.get_global_position()
+	picked_up_object.position = $YSort/InHand.get_global_position()
 	picked_up_object = null
 
 func _unhandled_input(event: InputEvent) -> void:

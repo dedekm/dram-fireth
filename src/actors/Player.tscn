@@ -128,13 +128,16 @@ position = Vector2( 1, -13 )
 frames = SubResource( 1 )
 animation = "up_right"
 
+[node name="InHand" type="Node2D" parent="YSort"]
+position = Vector2( -1, 13 )
+
 [node name="Chop" type="Node2D" parent="YSort"]
 position = Vector2( 0, 1 )
 
 [node name="ChopSprite" type="AnimatedSprite" parent="YSort/Chop"]
 visible = false
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -142,11 +145,12 @@ position = Vector2( 0, -7 )
 shape = SubResource( 6 )
 
 [node name="PickUpArea" type="Area2D" parent="."]
-position = Vector2( 8, -12 )
+position = Vector2( 0, -7 )
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
 modulate = Color( 0, 1, 0.227451, 1 )
+position = Vector2( 10, 0 )
 shape = SubResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

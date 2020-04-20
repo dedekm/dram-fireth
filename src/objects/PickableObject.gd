@@ -7,8 +7,8 @@ export (int) var mass = 1
 func burn() -> void:
 	var parent: = get_parent()
 	
-	if parent.name == 'PickUpArea':
-		parent.get_parent().picked_up_object = null
+	if parent.name == 'InHand':
+		parent.get_parent().get_parent().picked_up_object = null
 
 	queue_free()
 
