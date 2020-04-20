@@ -3,9 +3,10 @@ extends KinematicBody2D
 export (int) var speed = 200
 export (int) var throw_force = 500
 
-
 var velocity: = Vector2()
+var direction: String
 var picked_up_object: PickableObject
+
 var use_cooldown: = 0.0
 var thrown_object_body: = preload('res://src/actors/ThrownObjectBody.tscn')
 
@@ -31,45 +32,71 @@ func get_input() -> void:
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
 
+func _update_chop_position(x: float, y: float, angle: int) -> void:
+	var chop: = $YSort/Chop
+	var chop_sprite: = $YSort/Chop/ChopSprite
+
+	chop_sprite.position.x = x * 5
+	chop_sprite.position.y = y * 5
+	chop_sprite.set_rotation_degrees(angle)
+
+	if y == -1:
+		chop.position.y = -1
+		chop_sprite.flip_v = true
+	else:
+		chop.position.y = 0
+		chop_sprite.flip_v = false
+
 func change_animation() -> void:
 	if velocity != Vector2.ZERO:
 		if not $AudioStreamPlayer.playing:
 			$AudioStreamPlayer.play()
 
-		$AnimatedSprite.set_flip_h(false)
+		$YSort/PlayerSprite.set_flip_h(false)
 		var angle = int(rad2deg(velocity.angle()))
 		match angle:
 			-135:
 				_set_animation('up_right')
-				$AnimatedSprite.set_flip_h(true)
+				$YSort/PlayerSprite.set_flip_h(true)
+				_update_chop_position(-1, -1, angle)
 			-90:
 				_set_animation('up')
+				_update_chop_position(0, -1, angle)
 			-45:
 				_set_animation('up_right')
+				_update_chop_position(1, -1, angle)
 			0:
 				_set_animation('right')
+				_update_chop_position(1, 0, angle)
 			45:
 				_set_animation('down_right')
+				_update_chop_position(1, 1, angle)
 			90:
 				_set_animation('down')
+				_update_chop_position(0, 1, angle)
 			135:
 				_set_animation('down_right')
-				$AnimatedSprite.set_flip_h(true)
+				$YSort/PlayerSprite.set_flip_h(true)
+				_update_chop_position(-1, 1, angle)
 			180:
 				_set_animation('right')
-				$AnimatedSprite.set_flip_h(true)
+				$YSort/PlayerSprite.set_flip_h(true)
+				_update_chop_position(-1, 0, angle)
 	else:
 		if $AudioStreamPlayer.playing:
 			$AudioStreamPlayer.stop()
-		$AnimatedSprite.stop()
+		$YSort/PlayerSprite.stop()
 
 func _set_animation(name: String) -> void:
 	if picked_up_object or name == 'up':
-		$AnimatedSprite.play(name)
+		$YSort/PlayerSprite.play(name)
 	else:
-		$AnimatedSprite.play(name + '_axe')
+		$YSort/PlayerSprite.play(name + '_axe')
 
 func use_axe() -> void:
+	$YSort/Chop/ChopSprite.visible = true
+	$YSort/Chop/ChopSprite.play()
+
 	for body in pick_up_area.get_overlapping_bodies():
 		if body is DestuctableObject:
 			body.use_axe()
@@ -97,7 +124,7 @@ func cooldown(delta: float) -> void:
 
 func pick_up(object: PickableObject) -> void:
 	object.get_parent().remove_child(object)
-	$AnimatedSprite.play($AnimatedSprite.animation.trim_suffix('_axe'))
+	$YSort/PlayerSprite.play($YSort/PlayerSprite.animation.trim_suffix('_axe'))
 	object.picked_up()
 	pick_up_area.add_child(object)
 	picked_up_object = object
@@ -132,3 +159,7 @@ func _on_PushArea_body_exited(body: Node) -> void:
 	if body is PushableObject:
 		print_debug('stopped pushing ' + body.name)
 		body.stopping = true
+
+func _on_ChopSprite_animation_finished() -> void:
+	$YSort/Chop/ChopSprite.stop()
+	$YSort/Chop/ChopSprite.visible = false
