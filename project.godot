@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/objects/DestructableObject.gd"
 }, {
-"base": "StaticBody2D",
+"base": "KinematicBody2D",
 "class": "PickableObject",
 "language": "GDScript",
 "path": "res://src/objects/PickableObject.gd"
@@ -114,6 +114,8 @@ throw={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="FloorObjects"
 2d_physics/layer_3="StaticObjects"
+2d_physics/layer_4="PushableObjects"
+2d_physics/layer_5="Fire"
 
 [rendering]
 

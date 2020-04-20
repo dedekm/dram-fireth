@@ -6,11 +6,12 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 14.3819 )
 
-[node name="Branch" type="StaticBody2D"]
+[node name="Branch" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 20
+collision_mask = 4
 script = ExtResource( 1 )
 flammable = true
+mass = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

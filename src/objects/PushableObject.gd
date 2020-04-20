@@ -1,6 +1,9 @@
 extends KinematicBody2D
 class_name PushableObject
 
+export (bool) var flammable = false
+export (int) var mass = 1
+
 var velocity: = Vector2()
 var stopping: = false
 
