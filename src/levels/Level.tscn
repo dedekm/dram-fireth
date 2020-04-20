@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/objects/Branch.tscn" type="PackedScene" id=2]
@@ -6,175 +6,27 @@
 [ext_resource path="res://src/tools/FpsCounter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/objects/Axe.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/objects/Fire.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/tilemaps/forest.png" type="Texture" id=7]
+[ext_resource path="res://src/tilemaps/Map.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/objects/Tree.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/objects/Log.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=10]
+[ext_resource path="res://src/objects/Tree2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/objects/Tree3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/objects/Bush_hard.tscn" type="PackedScene" id=13]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 0, 64, 32, 64, 32, 96, 0, 96 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 0, 32, 32, 32, 32, 64, 0, 64, 0, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
-
-[sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 64, 0, 64 )
-
-[sub_resource type="TileSet" id=6]
-0/name = "forest.png 0"
-0/texture = ExtResource( 7 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 160, 96, 32, 96 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-1/name = "forest.png 1"
-1/texture = ExtResource( 7 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 224, 96, 96 )
-1/tile_mode = 1
-1/autotile/bitmask_mode = 0
-1/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 1 ), 325, Vector2( 1, 2 ), 5, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 1 ]
-1/autotile/icon_coordinate = Vector2( 0, 0 )
-1/autotile/tile_size = Vector2( 32, 32 )
-1/autotile/spacing = 0
-1/autotile/occluder_map = [  ]
-1/autotile/navpoly_map = [  ]
-1/autotile/priority_map = [  ]
-1/autotile/z_index_map = [  ]
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "forest.png 2"
-2/texture = ExtResource( 7 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 64, 128, 32, 64 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape = SubResource( 2 )
-2/shape_one_way = false
-2/shape_one_way_margin = 1.0
-2/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 2 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-2/z_index = 0
-3/name = "forest.png 3"
-3/texture = ExtResource( 7 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 128, 256, 32, 32 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape = SubResource( 3 )
-3/shape_one_way = false
-3/shape_one_way_margin = 1.0
-3/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 3 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-3/z_index = 0
-4/name = "forest.png 4"
-4/texture = ExtResource( 7 )
-4/tex_offset = Vector2( 0, 0 )
-4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 96, 256, 32, 32 )
-4/tile_mode = 0
-4/occluder_offset = Vector2( 0, 0 )
-4/navigation_offset = Vector2( 0, 0 )
-4/shape_offset = Vector2( 0, 0 )
-4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-4/shape = SubResource( 4 )
-4/shape_one_way = false
-4/shape_one_way_margin = 1.0
-4/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 4 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-4/z_index = 0
-5/name = "forest.png 5"
-5/texture = ExtResource( 7 )
-5/tex_offset = Vector2( 0, 0 )
-5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 128, 320, 32, 64 )
-5/tile_mode = 0
-5/occluder_offset = Vector2( 0, 0 )
-5/navigation_offset = Vector2( 0, 0 )
-5/shape_offset = Vector2( 0, 0 )
-5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-5/shape = SubResource( 5 )
-5/shape_one_way = false
-5/shape_one_way_margin = 1.0
-5/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 5 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-5/z_index = 0
+[sub_resource type="Curve" id=1]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, -8.63635 ), 0.0, 0.0, 0, 0, Vector2( 0.235632, -1.36365 ), 395.455, 395.455, 0, 0, Vector2( 0.494253, 9.54544 ), 302.609, 302.609, 0, 0, Vector2( 0.632184, -48.6364 ), 0.0, 0.0, 0, 0, Vector2( 0.83908, -8.63635 ), 0.0, 0.0, 0, 0, Vector2( 1, -55.9091 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 10 )
 
-[node name="Floor" type="TileMap" parent="."]
-tile_set = SubResource( 6 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( -2, 1, 0, -1, 1, 1, -65536, 1, 1, -65535, 1, 1, -65534, 1, 1, -65533, 1, 1, -65532, 1, 1, -65531, 1, 1, -65530, 1, 1, -65529, 1, 1, -65528, 1, 1, -65527, 1, 2, 65534, 1, 65536, 65535, 1, 65537, 0, 1, 65537, 1, 1, 65537, 2, 1, 65537, 3, 1, 65537, 4, 1, 65537, 5, 1, 65537, 6, 1, 65537, 7, 1, 65537, 8, 1, 65537, 9, 1, 65538, 131070, 1, 65536, 131071, 1, 65537, 65536, 1, 65537, 65537, 1, 65537, 65538, 1, 65537, 65539, 1, 65537, 65540, 1, 65537, 65541, 1, 65537, 65542, 1, 65537, 65543, 1, 65537, 65544, 1, 65537, 65545, 1, 65538, 196606, 1, 65536, 196607, 1, 65537, 131072, 1, 65537, 131073, 1, 65537, 131074, 1, 65537, 131075, 1, 65537, 131076, 1, 65537, 131077, 1, 65537, 131078, 1, 65537, 131079, 1, 65537, 131080, 1, 65537, 131081, 1, 65538, 262142, 1, 65536, 262143, 1, 65537, 196608, 1, 65537, 196609, 1, 65537, 196610, 1, 65537, 196611, 1, 65537, 196612, 1, 65537, 196613, 1, 65537, 196614, 1, 65537, 196615, 1, 65537, 196616, 1, 65537, 196617, 1, 65538, 327678, 1, 65536, 327679, 1, 65537, 262144, 1, 65537, 262145, 1, 65537, 262146, 1, 65537, 262147, 1, 65537, 262148, 1, 65537, 262149, 1, 65537, 262150, 1, 65537, 262151, 1, 65537, 262152, 1, 65537, 262153, 1, 65538, 393214, 1, 65536, 393215, 1, 65537, 327680, 1, 65537, 327681, 1, 65537, 327682, 1, 65537, 327683, 1, 65537, 327684, 1, 65537, 327685, 1, 65537, 327686, 1, 65537, 327687, 1, 65537, 327688, 1, 65537, 327689, 1, 65538, 458750, 1, 65536, 458751, 1, 65537, 393216, 1, 65537, 393217, 1, 65537, 393218, 1, 65537, 393219, 1, 65537, 393220, 1, 65537, 393221, 1, 65537, 393222, 1, 65537, 393223, 1, 65537, 393224, 1, 65537, 393225, 1, 65538, 524286, 1, 65536, 524287, 1, 65537, 458752, 1, 65537, 458753, 1, 65537, 458754, 1, 65537, 458755, 1, 65537, 458756, 1, 65537, 458757, 1, 65537, 458758, 1, 65537, 458759, 1, 65537, 458760, 1, 65537, 458761, 1, 65538, 589822, 1, 131072, 589823, 1, 131073, 524288, 1, 131073, 524289, 1, 131073, 524290, 1, 131073, 524291, 1, 131073, 524292, 1, 131073, 524293, 1, 131073, 524294, 1, 131073, 524295, 1, 131073, 524296, 1, 131073, 524297, 1, 131074 )
-
-[node name="Forest" type="TileMap" parent="."]
-tile_set = SubResource( 6 )
-cell_size = Vector2( 32, 32 )
-collision_layer = 4
-collision_mask = 4
-format = 1
-tile_data = PoolIntArray( 131070, 5, 0, 131071, 5, 0, 65536, 5, 0, 65537, 5, 0, 65538, 5, 0, 65539, 5, 0, 65540, 5, 0, 65541, 5, 0, 65542, 5, 0, 65543, 5, 0, 65544, 5, 0, 65545, 5, 0, 196611, 4, 0, 196613, 3, 0, 262144, 3, 0, 262151, 2, 0 )
+[node name="Map" parent="." instance=ExtResource( 7 )]
+position = Vector2( 107.488, 123.337 )
 
 [node name="Wood" parent="." instance=ExtResource( 2 )]
-position = Vector2( 187, 202 )
+position = Vector2( 180.168, 147.456 )
 
 [node name="FpsCounter" parent="." instance=ExtResource( 4 )]
 margin_left = 938.0
@@ -183,13 +35,7 @@ margin_right = 978.0
 margin_bottom = 44.0
 
 [node name="Fire" parent="." instance=ExtResource( 6 )]
-position = Vector2( 36.4783, 230.915 )
-
-[node name="Bush" parent="." instance=ExtResource( 3 )]
-position = Vector2( 169.959, 170.074 )
-
-[node name="Tree" parent="." instance=ExtResource( 8 )]
-position = Vector2( 80.1489, 186.301 )
+position = Vector2( 161.091, 124.32 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 120, 132 )
@@ -198,7 +44,35 @@ speed = 100
 throw_force = 100
 
 [node name="Log" parent="." instance=ExtResource( 9 )]
-position = Vector2( 77.3448, 217.757 )
+position = Vector2( 206.676, 117.005 )
 
 [node name="Axe" parent="." instance=ExtResource( 5 )]
-position = Vector2( 113.057, 185.647 )
+position = Vector2( 126.029, 173.601 )
+
+[node name="Snow" type="CPUParticles2D" parent="."]
+position = Vector2( 121.002, -66.7639 )
+amount = 748
+lifetime = 100.0
+emission_shape = 2
+emission_rect_extents = Vector2( 400, 1 )
+spread = 0.0
+gravity = Vector2( 0, 20.466 )
+initial_velocity = 40.33
+linear_accel_curve = SubResource( 1 )
+
+[node name="TreesBushes" type="Node2D" parent="."]
+
+[node name="Bush" parent="TreesBushes" instance=ExtResource( 3 )]
+position = Vector2( 130.798, 59.4593 )
+
+[node name="Bush_hard" parent="TreesBushes" instance=ExtResource( 13 )]
+position = Vector2( 113.867, 257.71 )
+
+[node name="Tree2" parent="TreesBushes" instance=ExtResource( 11 )]
+position = Vector2( 167.745, 406.882 )
+
+[node name="Tree" parent="TreesBushes" instance=ExtResource( 8 )]
+position = Vector2( 60.2183, 225.772 )
+
+[node name="Tree3" parent="TreesBushes" instance=ExtResource( 12 )]
+position = Vector2( 263.314, 326.54 )
