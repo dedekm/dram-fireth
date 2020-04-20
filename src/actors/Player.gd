@@ -61,10 +61,12 @@ func change_animation() -> void:
 func use() -> void:
 	if picked_up_object and use_cooldown == 0:
 		for body in pick_up_area.get_overlapping_bodies():
-			print(body.name)
 			# FIXME
 			if not body == picked_up_object:
+				print_debug('using ' + picked_up_object.name + ' to ' + body.name)
+
 				if picked_up_object.use(body):
+					
 					# object destroyed
 					picked_up_object.queue_free()
 					picked_up_object = null
@@ -116,3 +118,14 @@ func _unhandled_input(event: InputEvent) -> void:
 				if body is PickableObject:
 					pick_up(body)
 					break
+
+func _on_PushArea_body_entered(body: Node) -> void:
+	if body is PushableObject:
+		print_debug('pushing ' + body.name)
+		body.velocity = velocity 
+
+
+func _on_PushArea_body_exited(body: Node) -> void:
+	if body is PushableObject:
+		print_debug('stopped pushing ' + body.name)
+		body.stopping = true

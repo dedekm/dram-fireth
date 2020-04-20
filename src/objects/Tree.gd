@@ -1,12 +1,11 @@
-extends StaticBody2D
+extends DestuctableObject
 
-var wood: = preload('res://src/objects/Wood.tscn')
+var branch: = preload('res://src/objects/Branch.tscn')
+var logg: = preload('res://src/objects/Log.tscn')
 
-func apply(object: PickableObject) -> bool:
-	if object.name == 'Axe':
-		var wood_instance: = wood.instance()
-		wood_instance.position = position
-		get_parent().add_child(wood_instance)
-		queue_free()
-	
-	return false
+func _ready():
+	scraps = [
+		[ logg, Vector2(0, -20) ],
+		[ logg, Vector2(0, -45) ],
+		[ branch, Vector2(0, -70) ]
+	]

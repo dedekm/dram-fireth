@@ -10,12 +10,24 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "StaticBody2D",
+"class": "DestuctableObject",
+"language": "GDScript",
+"path": "res://src/objects/DestructableObject.gd"
+}, {
+"base": "StaticBody2D",
 "class": "PickableObject",
 "language": "GDScript",
 "path": "res://src/objects/PickableObject.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "PushableObject",
+"language": "GDScript",
+"path": "res://src/objects/PushableObject.gd"
 } ]
 _global_script_class_icons={
-"PickableObject": ""
+"DestuctableObject": "",
+"PickableObject": "",
+"PushableObject": ""
 }
 
 [application]
