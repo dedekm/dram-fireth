@@ -57,26 +57,6 @@ animations = [ {
 "name": "down_right",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "right_axe",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "up_right",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "down_axe",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 24 ), ExtResource( 37 ), ExtResource( 32 ) ],
-"loop": true,
-"name": "down_right_axe",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "down",
@@ -85,6 +65,26 @@ animations = [ {
 "frames": [ ExtResource( 23 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 35 ) ],
 "loop": true,
 "name": "up_right_axe",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "right_axe",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "down_axe",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 15 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "up_right",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 24 ), ExtResource( 37 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "down_right_axe",
 "speed": 8.0
 } ]
 
@@ -167,6 +167,7 @@ shape = SubResource( 8 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 38 )
+volume_db = -5.0
 [connection signal="animation_finished" from="YSort/Chop/ChopSprite" to="." method="_on_ChopSprite_animation_finished"]
 [connection signal="body_entered" from="PushArea" to="." method="_on_PushArea_body_entered"]
 [connection signal="body_exited" from="PushArea" to="." method="_on_PushArea_body_exited"]
