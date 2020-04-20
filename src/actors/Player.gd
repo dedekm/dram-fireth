@@ -102,7 +102,7 @@ func pick_up(object: PickableObject) -> void:
 func drop() -> void:
 	pick_up_area.remove_child(picked_up_object)
 	get_parent().add_child(picked_up_object)
-	picked_up_object.position = pick_up_area.get_global_mouse_position()
+	picked_up_object.position = pick_up_area.get_global_position()
 	picked_up_object = null
 
 func _unhandled_input(event: InputEvent) -> void:
