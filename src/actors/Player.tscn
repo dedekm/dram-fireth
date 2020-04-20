@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://src/actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/down/down01.png" type="Texture" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://assets/player/upright_axe/upright_axe04.png" type="Texture" id=35]
 [ext_resource path="res://assets/player/down_axe/down_axe02.png" type="Texture" id=36]
 [ext_resource path="res://assets/player/downright_axe/downright_axe03.png" type="Texture" id=37]
+[ext_resource path="res://assets/sounds/steps_loop.wav" type="AudioStream" id=38]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -127,5 +128,8 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PushArea"]
 modulate = Color( 0.12549, 0, 1, 1 )
 shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 38 )
 [connection signal="body_entered" from="PushArea" to="." method="_on_PushArea_body_entered"]
 [connection signal="body_exited" from="PushArea" to="." method="_on_PushArea_body_exited"]

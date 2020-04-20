@@ -33,6 +33,9 @@ func get_input() -> void:
 
 func change_animation() -> void:
 	if velocity != Vector2.ZERO:
+		if not $AudioStreamPlayer.playing:
+			$AudioStreamPlayer.play()
+
 		$AnimatedSprite.set_flip_h(false)
 		var angle = int(rad2deg(velocity.angle()))
 		match angle:
@@ -56,6 +59,8 @@ func change_animation() -> void:
 				_set_animation('right')
 				$AnimatedSprite.set_flip_h(true)
 	else:
+		if $AudioStreamPlayer.playing:
+			$AudioStreamPlayer.stop()
 		$AnimatedSprite.stop()
 
 func _set_animation(name: String) -> void:
