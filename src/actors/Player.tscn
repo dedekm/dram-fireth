@@ -50,6 +50,11 @@ animations = [ {
 "name": "up",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 23 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "up_right_axe",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "down_right",
@@ -65,24 +70,19 @@ animations = [ {
 "name": "up_right",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 24 ), ExtResource( 37 ), ExtResource( 32 ) ],
-"loop": true,
-"name": "down_right-axe",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 25 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 29 ) ],
 "loop": true,
-"name": "down-axe",
+"name": "down_axe",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 24 ), ExtResource( 37 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "down_right_axe",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 27 ) ],
 "loop": true,
-"name": "right-axe",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "up_right-axe",
+"name": "right_axe",
 "speed": 8.0
 } ]
 
@@ -101,7 +101,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "down"
+animation = "down_axe"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )

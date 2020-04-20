@@ -37,26 +37,32 @@ func change_animation() -> void:
 		var angle = int(rad2deg(velocity.angle()))
 		match angle:
 			-135:
-				$AnimatedSprite.play('up_right')
+				_set_animation('up_right')
 				$AnimatedSprite.set_flip_h(true)
 			-90:
-				$AnimatedSprite.play('up')
+				_set_animation('up')
 			-45:
-				$AnimatedSprite.play('up_right')
+				_set_animation('up_right')
 			0:
-				$AnimatedSprite.play('right')
+				_set_animation('right')
 			45:
-				$AnimatedSprite.play('down_right')
+				_set_animation('down_right')
 			90:
-				$AnimatedSprite.play('down')
+				_set_animation('down')
 			135:
-				$AnimatedSprite.play('down_right')
+				_set_animation('down_right')
 				$AnimatedSprite.set_flip_h(true)
 			180:
-				$AnimatedSprite.play('right')
+				_set_animation('right')
 				$AnimatedSprite.set_flip_h(true)
 	else:
 		$AnimatedSprite.stop()
+
+func _set_animation(name: String) -> void:
+	if picked_up_object or name == 'up':
+		$AnimatedSprite.play(name)
+	else:
+		$AnimatedSprite.play(name + '_axe')
 
 func use() -> void:
 	if picked_up_object and use_cooldown == 0:
@@ -66,7 +72,7 @@ func use() -> void:
 				print_debug('using ' + picked_up_object.name + ' to ' + body.name)
 
 				if picked_up_object.use(body):
-					
+
 					# object destroyed
 					picked_up_object.queue_free()
 					picked_up_object = null
@@ -95,6 +101,7 @@ func cooldown(delta: float) -> void:
 
 func pick_up(object: PickableObject) -> void:
 	object.get_parent().remove_child(object)
+	$AnimatedSprite.play($AnimatedSprite.animation.trim_suffix('_axe'))
 	pick_up_area.add_child(object)
 	picked_up_object = object
 	object.position = Vector2(0, 0)
@@ -122,7 +129,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_PushArea_body_entered(body: Node) -> void:
 	if body is PushableObject:
 		print_debug('pushing ' + body.name)
-		body.velocity = velocity 
+		body.velocity = velocity
 
 
 func _on_PushArea_body_exited(body: Node) -> void:
