@@ -7,6 +7,9 @@ export (int) var mass = 1
 var velocity: = Vector2()
 var stopping: = false
 
+func burn() -> void:
+	queue_free()
+
 func _physics_process(delta: float) -> void:
 	if stopping:
 		velocity.x -= 500 * delta

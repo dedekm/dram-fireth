@@ -64,19 +64,10 @@ func _set_animation(name: String) -> void:
 	else:
 		$AnimatedSprite.play(name + '_axe')
 
-func use() -> void:
-	if picked_up_object and use_cooldown == 0:
-		for body in pick_up_area.get_overlapping_bodies():
-			# FIXME
-			if not body == picked_up_object:
-				print_debug('using ' + picked_up_object.name + ' to ' + body.name)
-
-				if picked_up_object.use(body):
-
-					# object destroyed
-					picked_up_object.queue_free()
-					picked_up_object = null
-				use_cooldown = 2.0
+func use_axe() -> void:
+	for body in pick_up_area.get_overlapping_bodies():
+		if body is DestuctableObject:
+			body.use_axe()
 
 func throw(target: Vector2) -> void:
 	if picked_up_object and use_cooldown == 0:
@@ -114,9 +105,7 @@ func drop() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('use'):
-		use()
-	elif event.is_action_pressed('throw'):
-		throw(event.position)
+		use_axe()
 	elif event.is_action_pressed('pick_up'):
 		if picked_up_object:
 			drop()

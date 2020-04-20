@@ -12,7 +12,7 @@ func burn(object: Node) -> void:
 		
 	if object.flammable:
 		power += object.mass
-		object.queue_free()
+		object.burn()
 	else:
 		power -= object.mass
 		

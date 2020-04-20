@@ -4,13 +4,11 @@ class_name DestuctableObject
 var destroyed: = false
 var scraps: = []
 
-func apply(object: Node) -> bool:
-	if object.name == 'Axe' and !destroyed:
+func use_axe() -> void:
+	if not destroyed:
 		for scrap in scraps:
 			create_scrap(scrap)
 		destroy()
-	
-	return false
 
 func create_scrap(scrap_array: Array) -> void:
 	var scrap_instance: Node = scrap_array[0].instance()
