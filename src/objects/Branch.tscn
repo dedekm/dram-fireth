@@ -1,10 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/objects/PickableObject.gd" type="Script" id=1]
-[ext_resource path="res://assets/objects/wood_scraps.png" type="Texture" id=2]
+[ext_resource path="res://assets/objects/branch.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 14 )
+extents = Vector2( 11, 11 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "carried",
+"speed": 5.0
+} ]
 
 [node name="Branch" type="KinematicBody2D"]
 collision_layer = 2
@@ -16,7 +37,5 @@ mass = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
-hframes = 5
-frame = 4
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
