@@ -1,19 +1,26 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/actors/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/player/up_right.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/upright01.png" type="Texture" id=2]
 [ext_resource path="res://assets/player/right03.png" type="Texture" id=3]
 [ext_resource path="res://assets/player/right01.png" type="Texture" id=4]
 [ext_resource path="res://assets/player/right04.png" type="Texture" id=5]
 [ext_resource path="res://assets/player/right02.png" type="Texture" id=6]
-[ext_resource path="res://assets/player/down02.png" type="Texture" id=7]
+[ext_resource path="res://assets/player/2down01.png" type="Texture" id=7]
 [ext_resource path="res://assets/player/up01.png" type="Texture" id=8]
-[ext_resource path="res://assets/player/down04.png" type="Texture" id=9]
-[ext_resource path="res://assets/player/down03.png" type="Texture" id=10]
-[ext_resource path="res://assets/player/down01.png" type="Texture" id=11]
+[ext_resource path="res://assets/player/2down04.png" type="Texture" id=9]
+[ext_resource path="res://assets/player/2down02.png" type="Texture" id=10]
+[ext_resource path="res://assets/player/2down03.png" type="Texture" id=11]
 [ext_resource path="res://assets/player/up02.png" type="Texture" id=12]
 [ext_resource path="res://assets/player/up04.png" type="Texture" id=13]
 [ext_resource path="res://assets/player/up03.png" type="Texture" id=14]
+[ext_resource path="res://assets/player/upright03.png" type="Texture" id=15]
+[ext_resource path="res://assets/player/upright02.png" type="Texture" id=16]
+[ext_resource path="res://assets/player/upright04.png" type="Texture" id=17]
+[ext_resource path="res://assets/player/downright01.png" type="Texture" id=18]
+[ext_resource path="res://assets/player/downright02.png" type="Texture" id=19]
+[ext_resource path="res://assets/player/downright03.png" type="Texture" id=20]
+[ext_resource path="res://assets/player/downright04.png" type="Texture" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -27,19 +34,19 @@ animations = [ {
 "name": "up",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "down_right",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "up_right",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "down",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "up_right",
 "speed": 8.0
 } ]
 
