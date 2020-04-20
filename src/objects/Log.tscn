@@ -43,8 +43,10 @@ flammable = true
 mass = 10
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -9 )
 frames = SubResource( 5 )
 animation = "vertical"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -9 )
 shape = SubResource( 6 )
