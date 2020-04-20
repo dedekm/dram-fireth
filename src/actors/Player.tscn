@@ -24,6 +24,11 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "down_right",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "up_right",
@@ -32,11 +37,6 @@ animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "down_right",
 "speed": 5.0
 } ]
 
@@ -71,7 +71,6 @@ shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.25, 0.25 )
 
 [node name="PushArea" type="Area2D" parent="."]
 position = Vector2( 10, 0 )
