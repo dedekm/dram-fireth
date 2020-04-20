@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/objects/wood_scraps.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 14.3819 )
+extents = Vector2( 15, 14 )
 
 [node name="Branch" type="KinematicBody2D"]
 collision_layer = 2
