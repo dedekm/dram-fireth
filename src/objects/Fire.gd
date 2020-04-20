@@ -8,6 +8,9 @@ func _process(_delta: float) -> void:
 		print_debug('GAME OVER')
 	
 func burn(object: Node) -> void:
+	if object.name == 'Player':
+		return
+
 	print_debug('FIREEE ' + object.name)
 		
 	if object.flammable:
