@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ooo_f.wav-b1e458857e334e67bc5080b1dd4ca72f.sample"
+
+[deps]
+
+source_file="res://assets/sounds/asmr/unused/ooo_f.wav"
+dest_files=[ "res://.import/ooo_f.wav-b1e458857e334e67bc5080b1dd4ca72f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

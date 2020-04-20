@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mnam2_f.wav-d1f57f2d40f473d22bdf357b9b0119bd.sample"
+
+[deps]
+
+source_file="res://assets/sounds/asmr/unused/mnam2_f.wav"
+dest_files=[ "res://.import/mnam2_f.wav-d1f57f2d40f473d22bdf357b9b0119bd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

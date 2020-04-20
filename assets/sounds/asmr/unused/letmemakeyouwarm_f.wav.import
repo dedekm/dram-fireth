@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/letmemakeyouwarm_f.wav-ca1be290ff0954626e9a0ea44e856917.sample"
+
+[deps]
+
+source_file="res://assets/sounds/asmr/unused/letmemakeyouwarm_f.wav"
+dest_files=[ "res://.import/letmemakeyouwarm_f.wav-ca1be290ff0954626e9a0ea44e856917.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

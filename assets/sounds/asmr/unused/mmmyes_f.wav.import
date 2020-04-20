@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mmmyes_f.wav-f603d6c814bd8d7cba63d01ab8b2019b.sample"
+
+[deps]
+
+source_file="res://assets/sounds/asmr/unused/mmmyes_f.wav"
+dest_files=[ "res://.import/mmmyes_f.wav-f603d6c814bd8d7cba63d01ab8b2019b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
