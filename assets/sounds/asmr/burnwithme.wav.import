@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/burnwithme.wav-3aa1bdb983c06a59f06b0710f7e009ce.sample"
+
+[deps]
+
+source_file="res://assets/sounds/asmr/burnwithme.wav"
+dest_files=[ "res://.import/burnwithme.wav-3aa1bdb983c06a59f06b0710f7e009ce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
