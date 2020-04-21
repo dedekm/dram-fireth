@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slash_7x16.png-4519ab3cd7bc98086bbe7a46a4bfd461.stex"
+path="res://.import/chop.png-66006f4a2306d4dd17ad5f342434a9a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/slash_7x16.png"
-dest_files=[ "res://.import/slash_7x16.png-4519ab3cd7bc98086bbe7a46a4bfd461.stex" ]
+source_file="res://assets/player/chop/chop.png"
+dest_files=[ "res://.import/chop.png-66006f4a2306d4dd17ad5f342434a9a7.stex" ]
 
 [params]
 

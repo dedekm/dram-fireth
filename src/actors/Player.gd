@@ -104,6 +104,10 @@ func use_axe() -> void:
 	for body in pick_up_area.get_overlapping_bodies():
 		if body is DestuctableObject:
 			body.use_axe()
+			$ChopEffectPlayer.play_chop_wood()
+			return
+	
+	$ChopEffectPlayer.play_swing()
 
 func throw(target: Vector2) -> void:
 	if picked_up_object and use_cooldown == 0:
