@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/givememorewood2.wav-a7574920534e0678f7fc2ac852a23887.sample"
+
+[deps]
+
+source_file="res://assets/sounds/asmr/unused/givememorewood2.wav"
+dest_files=[ "res://.import/givememorewood2.wav-a7574920534e0678f7fc2ac852a23887.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/mnam2_f.wav-d1f57f2d40f473d22bdf357b9b0119bd.sample"
+path="res://.import/imsohot.wav-033e7fa8f3c5fdcfef3a25e40839cabe.sample"
 
 [deps]
 
-source_file="res://assets/sounds/asmr/unused/mnam2_f.wav"
-dest_files=[ "res://.import/mnam2_f.wav-d1f57f2d40f473d22bdf357b9b0119bd.sample" ]
+source_file="res://assets/sounds/asmr/unused/imsohot.wav"
+dest_files=[ "res://.import/imsohot.wav-033e7fa8f3c5fdcfef3a25e40839cabe.sample" ]
 
 [params]
 

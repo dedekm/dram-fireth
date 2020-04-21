@@ -7,7 +7,12 @@ var asmr_files: = [
 	preload("res://assets/sounds/asmr/ajajajajaaj.wav"),
 	preload("res://assets/sounds/asmr/burnwithme.wav"),
 	preload("res://assets/sounds/asmr/buuuuurn.wav"),
-	preload("res://assets/sounds/asmr/iwantmorewood.wav")
+	preload("res://assets/sounds/asmr/chmmm.wav"),
+	preload("res://assets/sounds/asmr/iwantmorewood.wav"),
+	preload("res://assets/sounds/asmr/mmmmm.wav"),
+	preload("res://assets/sounds/asmr/mmmyes.wav"),
+	preload("res://assets/sounds/asmr/ooo.wav"),
+	preload("res://assets/sounds/asmr/yesss.wav"),
 ]
 
 func _ready():
@@ -36,10 +41,11 @@ func burn(object: Node) -> void:
 		power += object.mass
 		object.burn()
 		
-		asmr_timer = Timer.new()
-		asmr_timer.connect('timeout', self, '_play_asmr_sound')
-		add_child(asmr_timer)
-		asmr_timer.start(1)
+		if power > 10:
+			asmr_timer = Timer.new()
+			asmr_timer.connect('timeout', self, '_play_asmr_sound')
+			add_child(asmr_timer)
+			asmr_timer.start(0.5)
 		
 		if power >= 50:
 			show_fire_person()

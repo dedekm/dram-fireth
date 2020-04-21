@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/yesss2_f.wav-16163ab40582ce326f8478daa7666fb5.sample"
+path="res://.import/mnam1.wav-e17a345b70baea97a0829ccd76eb7474.sample"
 
 [deps]
 
-source_file="res://assets/sounds/asmr/unused/yesss2_f.wav"
-dest_files=[ "res://.import/yesss2_f.wav-16163ab40582ce326f8478daa7666fb5.sample" ]
+source_file="res://assets/sounds/asmr/unused/mnam1.wav"
+dest_files=[ "res://.import/mnam1.wav-e17a345b70baea97a0829ccd76eb7474.sample" ]
 
 [params]
 

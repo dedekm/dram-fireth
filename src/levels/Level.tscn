@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/objects/Box.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/objects/Fire.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/tilemaps/Map.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/objects/Tree.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/objects/ohniste.png" type="Texture" id=9]
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=10]
 [ext_resource path="res://src/objects/Tree2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/objects/Tree3.tscn" type="PackedScene" id=12]
@@ -91,6 +92,12 @@ position = Vector2( 241.291, 101.166 )
 
 [node name="Wheel" parent="YSort" instance=ExtResource( 18 )]
 position = Vector2( 224.311, 174.467 )
+
+[node name="Fireplace" type="Sprite" parent="YSort"]
+position = Vector2( 168.045, 121.471 )
+texture = ExtResource( 9 )
+hframes = 4
+frame = 1
 
 [node name="WindAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

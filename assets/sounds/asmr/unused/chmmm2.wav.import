@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/chmmm2.wav-b0021d6cfb24a67a942545e0ad0a4ece.sample"
+
+[deps]
+
+source_file="res://assets/sounds/asmr/unused/chmmm2.wav"
+dest_files=[ "res://.import/chmmm2.wav-b0021d6cfb24a67a942545e0ad0a4ece.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
