@@ -479,11 +479,10 @@ points = PoolVector2Array( 1.828, 18.2816, 28.0617, 18.2816, 30.2943, 24.7005, 1
 [node name="Map" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-z_index = 1
 tile_set = SubResource( 38 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -65530, 7, 0, 65531, 6, 0, 4, 2, 0, 131077, 8, 0, 327685, 5, 0, 458750, 3, 0 )
+tile_data = PoolIntArray( -65530, 7, 0, 65531, 6, 0, 131077, 8, 0 )
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource( 38 )

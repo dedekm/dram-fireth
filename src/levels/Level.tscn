@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/objects/Box.tscn" type="PackedScene" id=2]
@@ -8,12 +8,15 @@
 [ext_resource path="res://src/objects/Fire.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/tilemaps/Map.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/objects/Tree.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/objects/Log.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/levels/Level.gd" type="Script" id=10]
 [ext_resource path="res://src/objects/Tree2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/objects/Tree3.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/objects/BushHard.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/objects/Crow.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/objects/Stone1.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/objects/Stone2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/objects/Stone.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/objects/Wheel.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Curve" id=1]
 min_value = -200.0
@@ -33,6 +36,15 @@ margin_right = 978.0
 margin_bottom = 44.0
 
 [node name="YSort" type="YSort" parent="."]
+
+[node name="Stone2" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 91.824, 372.007 )
+
+[node name="Stone" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 286.191, 179.624 )
+
+[node name="Stone1" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 282.621, 311.714 )
 
 [node name="Crow" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 255.932, 348.06 )
@@ -63,11 +75,11 @@ position = Vector2( 112.415, 178.613 )
 speed = 100
 throw_force = 100
 
-[node name="Log" parent="YSort" instance=ExtResource( 9 )]
-position = Vector2( 197.103, 131.494 )
-
 [node name="Box" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 241.291, 101.166 )
+
+[node name="Wheel" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 224.311, 174.467 )
 
 [node name="WindAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
