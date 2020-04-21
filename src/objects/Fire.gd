@@ -53,6 +53,10 @@ func _on_FireArea_body_entered(body: Node) -> void:
 	burn(body)
 
 func _update_particles() -> void:
-	$FireParticles.amount = 100 + power * 2
-	$FireParticles.lifetime = 1 + power * 0.1
-	$FireParticles. emission_rect_extents.x = 1 + power * 0.5
+	$FireParticles.amount = 100 + power * 4
+	$FireParticles.lifetime = 1 + power * 0.07
+	$FireParticles.emission_rect_extents.x = 1 + power * 0.2
+	
+	$SmokeParticles.amount = 100 + power * 5
+	$SmokeParticles.lifetime = 1 + power * 0.1
+	$SmokeParticles.emission_rect_extents.x = 1 + power * 0.3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/objects/Fire.gd" type="Script" id=1]
 [ext_resource path="res://assets/particles/smoke_particle.png" type="Texture" id=2]
@@ -11,12 +11,17 @@ extents = Vector2( 6, 11 )
 extents = Vector2( 7, 14 )
 
 [sub_resource type="Curve" id=3]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.0862069, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 0.827273 ), 0.0, 0.0, 0, 0, Vector2( 0.0862069, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.403922, 1 )
+colors = PoolColorArray( 0.902344, 0.118607, 0.0493469, 1, 0.390625, 0, 0, 1 )
 
 [node name="Fire" type="StaticBody2D"]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource( 1 )
+power = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -12 )
@@ -60,7 +65,7 @@ initial_velocity_random = 0.1
 scale_amount = 10.0
 scale_amount_random = 0.8
 scale_amount_curve = SubResource( 3 )
-color = Color( 0.8, 0.168627, 0, 1 )
+color_ramp = SubResource( 4 )
 
 [node name="FireSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
