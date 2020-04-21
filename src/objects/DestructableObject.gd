@@ -16,8 +16,6 @@ func create_scrap(scrap_array: Array) -> void:
 	get_parent().add_child(scrap_instance)
 
 func destroy() -> void:
-	print_debug(name + ' destroyed ')
-
 	$CollisionShape2D.disabled = true
 
 	if $AnimatedSprite or $Sprite:
@@ -25,7 +23,7 @@ func destroy() -> void:
 			$AnimatedSprite.play('destroyed')
 		elif $Sprite:
 			$Sprite.frame = 1
-		
+
 		destroyed = true
 	else:
 		queue_free()

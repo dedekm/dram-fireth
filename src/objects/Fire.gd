@@ -58,8 +58,6 @@ func burn(object: Node) -> void:
 			_end(object)
 		return
 
-	print_debug('FIREEE ' + object.name)
-
 	if object.flammable:
 		power += object.mass
 		object.burn()
@@ -71,8 +69,6 @@ func burn(object: Node) -> void:
 			show_fire_person()
 	else:
 		power -= object.mass
-
-	print_debug('Fire power' + String(power))
 
 	_update_particles()
 

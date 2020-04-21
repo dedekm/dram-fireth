@@ -43,7 +43,7 @@ func _update_chop_position(x: float, y: float, angle: int) -> void:
 	chop_sprite.position.x = x * 5
 	chop_sprite.position.y = y * 5
 	chop_sprite.set_rotation_degrees(angle)
-	
+
 	if y != 1:
 		chop.position.y = -1
 		chop_sprite.flip_v = true
@@ -108,7 +108,7 @@ func use_axe() -> void:
 			body.use_axe()
 			$ChopEffectPlayer.play_chop_wood()
 			return
-	
+
 	$ChopEffectPlayer.play_swing()
 
 func throw(target: Vector2) -> void:
@@ -161,13 +161,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_PushArea_body_entered(body: Node) -> void:
 	if body is PushableObject:
-		print_debug('pushing ' + body.name)
 		body.velocity = velocity
 
 
 func _on_PushArea_body_exited(body: Node) -> void:
 	if body is PushableObject:
-		print_debug('stopped pushing ' + body.name)
 		body.stopping = true
 
 func _on_ChopSprite_animation_finished() -> void:
