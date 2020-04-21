@@ -19,7 +19,7 @@
 [ext_resource path="res://src/objects/Stone.tscn" type="PackedScene" id=17]
 [ext_resource path="res://src/objects/Wheel.tscn" type="PackedScene" id=18]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "fade_out"
 length = 5.0
 tracks/0/type = "value"
@@ -39,7 +39,7 @@ tracks/0/keys = {
 script = ExtResource( 10 )
 
 [node name="Map" parent="." instance=ExtResource( 7 )]
-position = Vector2( 107.488, 123.337 )
+position = Vector2( 107, 123 )
 
 [node name="FpsCounter" parent="." instance=ExtResource( 4 )]
 margin_left = 938.0
@@ -50,19 +50,19 @@ margin_bottom = 44.0
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Stone2" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 91.824, 372.007 )
+position = Vector2( 91, 372 )
 
 [node name="Stone" parent="YSort" instance=ExtResource( 17 )]
-position = Vector2( 286.191, 179.624 )
+position = Vector2( 286, 179 )
 
 [node name="Stone1" parent="YSort" instance=ExtResource( 15 )]
-position = Vector2( 282.621, 311.714 )
+position = Vector2( 286, 311 )
 
 [node name="Crow" parent="YSort" instance=ExtResource( 14 )]
-position = Vector2( 255.932, 348.06 )
+position = Vector2( 255, 348 )
 
 [node name="Bush2" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 115.325, 78.2052 )
+position = Vector2( 115, 78 )
 
 [node name="BushHard" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 136.305, 259.152 )
@@ -71,16 +71,16 @@ position = Vector2( 136.305, 259.152 )
 position = Vector2( 195.543, 395.178 )
 
 [node name="Tree4" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 314.52, 292.403 )
+position = Vector2( 314, 292 )
 
 [node name="Fire" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 168.286, 122.323 )
 
 [node name="Bush" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 59.116, 312.737 )
+position = Vector2( 59, 312 )
 
 [node name="Tree" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 29.1513, 219.226 )
+position = Vector2( 29, 219 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 112.415, 178.613 )
@@ -88,13 +88,13 @@ speed = 100
 throw_force = 100
 
 [node name="Box" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 241.291, 101.166 )
+position = Vector2( 241, 101 )
 
 [node name="Wheel" parent="YSort" instance=ExtResource( 18 )]
-position = Vector2( 224.311, 174.467 )
+position = Vector2( 224, 174 )
 
 [node name="Fireplace" type="Sprite" parent="YSort"]
-position = Vector2( 168.045, 121.471 )
+position = Vector2( 168, 121 )
 texture = ExtResource( 9 )
 hframes = 4
 frame = 1
@@ -108,4 +108,4 @@ volume_db = -15.0
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate"]
-anims/fade_out = SubResource( 2 )
+anims/fade_out = SubResource( 1 )
