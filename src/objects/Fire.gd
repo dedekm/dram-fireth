@@ -17,9 +17,17 @@ func _process(_delta: float) -> void:
 	if power <= 0:
 		# TODO
 		print_debug('GAME OVER')
+
+func show_fire_person() -> void:
+	$FirePersonSprite.visible = true
+	$FirePersonSprite.play()
 	
 func burn(object: Node) -> void:
 	if object.name == 'Player':
+		if power > 50:
+			object.disabled = true
+			object.visible = false
+			$FirePersonSprite.play('burning')
 		return
 
 	print_debug('FIREEE ' + object.name)
@@ -32,6 +40,9 @@ func burn(object: Node) -> void:
 		asmr_timer.connect('timeout', self, '_play_asmr_sound')
 		add_child(asmr_timer)
 		asmr_timer.start(1)
+		
+		if power >= 50:
+			show_fire_person()
 	else:
 		power -= object.mass
 		

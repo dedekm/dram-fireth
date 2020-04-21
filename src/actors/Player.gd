@@ -6,6 +6,7 @@ export (int) var throw_force = 500
 var velocity: = Vector2()
 var direction: String
 var picked_up_object: PickableObject
+var disabled: = false
 
 var use_cooldown: = 0.0
 var thrown_object_body: = preload('res://src/actors/ThrownObjectBody.tscn')
@@ -13,10 +14,11 @@ var thrown_object_body: = preload('res://src/actors/ThrownObjectBody.tscn')
 onready var pick_up_area: = $PickUpArea
 
 func _physics_process(delta: float) -> void:
-	get_input()
-	cooldown(delta)
-	velocity = move_and_slide(velocity)
-	change_animation()
+	if not disabled:
+		get_input()
+		cooldown(delta)
+		velocity = move_and_slide(velocity)
+		change_animation()
 
 func get_input() -> void:
 	velocity = Vector2()
